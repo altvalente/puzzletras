@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzles com Letras e Números</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Puzzles com Letras e Números</h1>
+
+        <div class="game-area">
+            <div class="config-panel">
+                <h2>Configurações</h2>
+                <label for="roundTime">Tempo da Ronda (minutos):</label>
+                <input type="number" id="roundTime" value="5" min="1">
+
+                <label>Modo de Jogo:</label>
+                <div>
+                    <input type="radio" id="modeIndividual" name="gameMode" value="Individual" checked>
+                    <label for="modeIndividual">Individual</label>
+                </div>
+                <div>
+                    <input type="radio" id="modeGrupo" name="gameMode" value="Grupo">
+                    <label for="modeGrupo">Grupo</label>
+                </div>
+                
+                <button id="startGameBtn">Iniciar Ronda</button>
+                <button id="endGameBtn" class="hidden">Terminar Ronda</button>
+            </div>
+
+            <div class="puzzle-panel">
+                <div class="timer">00:00</div>
+                <div class="puzzle-display">
+                    <p id="currentPuzzle">Aguardar o início da ronda...</p>
+                    <input type="text" id="answerInput" placeholder="Responda aqui..." disabled>
+                    <button id="submitAnswerBtn" disabled>Submeter Resposta</button>
+                    <button id="nextPuzzleBtn" disabled>Puzzle Seguinte</button>
+                </div>
+            </div>
+
+            <div class="score-panel">
+                <h2>Resultados da Ronda</h2>
+                <p>Puzzles: <span id="puzzleCount">0/0</span></p>
+                <p>Acertos: <span id="correctAnswers">0</span></p>
+                <p>Erros: <span id="wrongAnswers">0</span></p>
+                <!-- A pontuação interna não é mais exibida para o jogador -->
+                <!-- <p>Pontuação: <span id="score">0</span></p> --> 
+            </div>
+        </div>
+
+        <!-- Botão para alternar a visibilidade da área de gestão -->
+        <button id="toggleManagementBtn" class="management-toggle-button">Gerir Puzzles</button>
+
+        <div id="managementArea" class="management-area hidden">
+            <h2>Gestão de Puzzles</h2>
+            <div class="file-inputs">
+                <label for="loadPuzzlesFile" class="button">Carregar Puzzles (TXT)</label>
+                <input type="file" id="loadPuzzlesFile" accept=".txt" style="display: none;">
+                <span id="loadedFileName">Nenhum ficheiro carregado</span>
+            </div>
+            <div class="new-puzzle-area">
+                <h3>Criar Novo Puzzle</h3>
+                <input type="text" id="newPuzzleDisplay" placeholder="Puzzle ex: 3=R___ num T___">
+                <input type="text" id="newPuzzleAnswer" placeholder="Resposta ex: 3 Rodas num Triciclo">
+                <button id="addNewPuzzleBtn">Adicionar Puzzle</button>
+            </div>
+            <div class="action-buttons">
+                <button id="exportResultsBtn">Exportar Resultados (CSV)</button>
+                <button id="exportNewPuzzlesBtn">Exportar Puzzles Adicionados (TXT)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+h2, h3 {
+    color: #34495e;
+    margin-bottom: 15px;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+}
+
+.game-area {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.config-panel, .puzzle-panel, .score-panel {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    min-width: 280px;
+}
+
+.puzzle-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex: 2;
+    min-width: 350px;
+}
+
+.timer {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 180px;
+    text-align: center;
+}
+
+.puzzle-display p {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+input[type="text"], input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+button:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.config-panel label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.config-panel input[type="radio"] {
+    margin-right: 5px;
+}
+
+.config-panel div {
+    margin-bottom: 10px;
+}
+
+.management-area {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.file-inputs, .new-puzzle-area, .action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-inputs .button {
+    background-color: #2ecc71;
+    padding: 12px 20px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-inputs .button:hover {
+    background-color: #27ae60;
+}
+
+#loadedFileName {
+    font-style: italic;
+    color: #555;
+    flex-grow: 1;
+}
+
+.new-puzzle-area input {
+    flex: 1;
+    min-width: 200px;
+}
+
+.new-puzzle-area button {
+    background-color: #f39c12;
+}
+
+.new-puzzle-area button:hover:not(:disabled) {
+    background-color: #e67e22;
+}
+
+.action-buttons button {
+    flex: 1;
+    min-width: 180px;
+}
+
+#exportResultsBtn {
+    background-color: #9b59b6;
+}
+
+#exportResultsBtn:hover:not(:disabled) {
+    background-color: #8e44ad;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Adição para o botão de alternar gestão */
+.management-toggle-button {
+    background-color: #607d8b; /* Cor cinzenta/azulada para destaque */
+    margin: 20px auto; /* Centraliza o botão e adiciona margem */
+    display: block; /* Garante que ocupa a linha toda para o margin auto funcionar */
+    width: fit-content; /* Ajusta a largura ao conteúdo */
+    padding: 12px 25px;
+    font-weight: bold;
+}
+
+.management-toggle-button:hover:not(:disabled) {
+    background-color: #455a64;
+}
+
+
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+    }
+    .config-panel, .puzzle-panel, .score-panel {
+        min-width: unset;
+        width: 100%;
+    }
+    .new-puzzle-area input {
+        width: 100%;
+    }
+}
